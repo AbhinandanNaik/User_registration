@@ -3,7 +3,7 @@ const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
 
 
-registerBtn.addEventListener('click', () => {
+registerBtn.addEventListener('click', () => { 
     container.classList.add("active");
 });
 
@@ -52,4 +52,5 @@ function openWebsite(){
     window.open("https://vaultofcodes.com/",'_blank');
 
 }
+
 
