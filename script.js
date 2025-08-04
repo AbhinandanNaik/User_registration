@@ -11,7 +11,7 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active"); 
 });
 
-
+ 
 function checkPasswordStrength(password) {
    
     var password = document.getElementById("password").value;
@@ -52,3 +52,4 @@ function openWebsite(){
     window.open("https://vaultofcodes.com/",'_blank');
 
 }
+
