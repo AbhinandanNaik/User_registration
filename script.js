@@ -8,7 +8,7 @@ registerBtn.addEventListener('click', () => {
 });
 
 loginBtn.addEventListener('click', () => {
-    container.classList.remove("active");
+    container.classList.remove("active"); 
 });
 
 
@@ -50,4 +50,5 @@ function validatePassword() {
 }
 function openWebsite(){
     window.open("https://vaultofcodes.com/",'_blank');
+
 }
