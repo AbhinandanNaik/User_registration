@@ -1,0 +1,85 @@
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-field {
+    width: 100%;
+    padding: var(--spacing-md);
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(var(--backdrop-blur));
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+.input-field.has-icon {
+    padding-left: 48px;
+}
+
+.input-field:focus {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(var(--primary-hue), 100, 50, 0.1);
+}
+
+.input-field.has-error {
+    border-color: var(--color-error);
+}
+
+.input-label {
+    position: absolute;
+    left: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    pointer-events: none;
+    transition: all var(--transition-fast);
+    font-size: 1rem;
+}
+
+.input-field.has-icon~.input-label {
+    left: 48px;
+}
+
+/* Floating Label Logic */
+.input-field:focus~.input-label,
+.input-field:not(:placeholder-shown)~.input-label {
+    top: var(--spacing-sm);
+    transform: translateY(0);
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.input-field.has-error:focus~.input-label,
+.input-field.has-error:not(:placeholder-shown)~.input-label {
+    color: var(--color-error);
+}
+
+.input-icon {
+    position: absolute;
+    left: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    z-index: 1;
+}
+
+.input-error {
+    font-size: 0.875rem;
+    color: var(--color-error);
+    margin-left: var(--spacing-xs);
+}

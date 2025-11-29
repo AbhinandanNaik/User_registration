@@ -1,0 +1,78 @@
+.auth-layout {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-background);
+}
+
+.auth-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+.gradient-sphere {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    animation: float 20s infinite;
+}
+
+.sphere-1 {
+    background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+    width: 800px;
+    height: 800px;
+    top: -200px;
+    left: -200px;
+    animation-delay: 0s;
+}
+
+.sphere-2 {
+    background: radial-gradient(circle, var(--color-success) 0%, transparent 70%);
+    width: 600px;
+    height: 600px;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+.sphere-3 {
+    background: radial-gradient(circle, var(--color-error) 0%, transparent 70%);
+    width: 400px;
+    height: 400px;
+    top: 40%;
+    left: 40%;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, -50px) rotate(10deg);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.auth-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+    padding: var(--spacing-lg);
+}
