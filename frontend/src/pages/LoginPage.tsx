@@ -2,11 +2,13 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
+import { toast } from 'sonner';
 import { Card } from '../components/ui/Card';
 import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
+import { authApi } from '../services/auth-api';
 
 const loginSchema = z.object({
     email: z.string().email('Please enter a valid email address'),
@@ -16,6 +18,7 @@ const loginSchema = z.object({
 type LoginForm = z.infer<typeof loginSchema>;
 
 const LoginPage: React.FC = () => {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -25,9 +28,17 @@ const LoginPage: React.FC = () => {
     });
 
     const onSubmit = async (data: LoginForm) => {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        console.log(data);
+        try {
+            const response = await authApi.login(data);
+            toast.success(response.message || 'Login successful');
+            localStorage.setItem('token', response.token);
+            // Redirect to dashboard or home
+            navigate('/dashboard');
+        } catch (error: any) {
+            console.error('Login error:', error);
+            const errorMessage = error.response?.data?.message || 'Login failed. Please check your credentials.';
+            toast.error(errorMessage);
+        }
     };
 
     return (

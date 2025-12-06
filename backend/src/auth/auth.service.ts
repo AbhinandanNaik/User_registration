@@ -75,7 +75,8 @@ export class AuthService {
     const { passwordHash: _, ...result } = user;
     return {
       user: result,
-      token
+      token,
+      message: 'Login successful',
     };
   }
 }

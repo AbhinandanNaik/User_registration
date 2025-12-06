@@ -1,11 +1,13 @@
-// frontend/src/App.tsx (Modified)
-
 import React from 'react';
+import { Toaster } from 'sonner';
 import AppRoutes from './routes/AppRoutes';
 
 const App: React.FC = () => {
   return (
-    <AppRoutes />
+    <>
+      <Toaster position="top-right" richColors />
+      <AppRoutes />
+    </>
   );
 };
 
